@@ -1,25 +1,9 @@
+import Carousel from '@/components/Carousel';
+
 export default function Home() {
   return (
     <div className="bg-darkBlue-900 text-white">
-      <section className="text-center py-12 px-4">
-        <h1 className="text-5xl font-bold mb-6 animate-slideIn">
-          BROOKLYN TECHNICAL HIGH SCHOOL NATIONAL HONOR SOCIETY
-        </h1>
-        <h3 className="text-lg italic max-w-4xl mx-auto mb-10 leading-relaxed">
-          The Brooklyn Technical High School National Honor Society serves to recognize those students who have 
-          demonstrated excellence that upholds the four pillars of character, leadership, scholarship, and service. 
-          Our purpose is to provide services to the school community and New York City, whether it is through 
-          volunteering, tutoring students, mentoring, assisting school faculty, or helping out during major school events.
-        </h3>
-
-        <div className="flex justify-center mb-12">
-          <div className="relative w-full max-w-3xl h-80 rounded-2xl overflow-hidden border-4 border-gold animate-slideIn">
-            <div className="w-full h-full bg-gradient-to-r from-darkBlue-700 to-darkBlue-800 flex items-center justify-center">
-              <p className="text-gray-400">[Executive Photo Placeholder]</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Carousel />
 
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="text-4xl font-bold text-center mb-12">Our Pillars</h2>
