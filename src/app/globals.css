@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+BR:wght@100..400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Nunito', sans-serif;
+  @apply bg-darkBlue-900 text-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  @apply text-gold hover:text-yellow-300 transition-colors;
+}
+
+h1 {
+  @apply text-4xl font-bold mb-8;
+}
+
+h2 {
+  @apply text-3xl font-bold mt-8 mb-6;
+}
+
+h3 {
+  @apply text-2xl font-bold mb-4;
+}
+
+p {
+  @apply text-lg mb-4 max-w-4xl mx-auto;
+}
