@@ -1,0 +1,184 @@
+{
+  "sections": [
+    {
+      "title": "Upper Leadership",
+      "members": [
+        {
+          "id": "yeyin-li",
+          "role": "President",
+          "name": "Yeyin Li",
+          "major": "Finance",
+          "image": "/data/execphotos/yeyin-li.jpg",
+          "favoriteColor": "Baby Pink",
+          "favoriteFood": "Sushi",
+          "extraQuestion": "What is your favorite quote and why?",
+          "extraAnswer": "You can wipe away someone's tears, but not their pain - Leonardo Da Vinci"
+        },
+        {
+          "id": "emily-lin",
+          "role": "Co-Vice President",
+          "name": "Emily Lin",
+          "major": "Biological Sciences",
+          "image": "/data/execphotos/emily-lin.jpg",
+          "favoriteColor": "White",
+          "favoriteFood": "Udon",
+          "extraQuestion": "Who is your role model and why?",
+          "extraAnswer": "My mom because she always seems to have the answers to my questions."
+        },
+        {
+          "id": "tianxiao-liu",
+          "role": "Co-Vice President",
+          "name": "Tianxiao Liu",
+          "major": "Chemistry",
+          "image": "/data/execphotos/tianxiao-liu.jpg",
+          "favoriteColor": "White",
+          "favoriteFood": "Ramen",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "Traveling alone to the Caribbean."
+        }
+      ]
+    },
+    {
+      "title": "Officers",
+      "members": [
+        {
+          "id": "lola-clark",
+          "role": "Parliamentarian",
+          "name": "Lola Clark",
+          "major": "Aerospace Engineering",
+          "image": "/data/images/execheadshots2025/lola-clark.jpg",
+          "favoriteColor": "Light Blue",
+          "favoriteFood": "Acai Bowl",
+          "extraQuestion": "If you won the lottery, what would you do first?",
+          "extraAnswer": "Probably celebrate with my family."
+        },
+        {
+          "id": "montasir-mahir",
+          "role": "Secretary",
+          "name": "Montasir Mahir",
+          "major": "Mechatronics & Robotics",
+          "image": "/data/images/execheadshots2025/montasir-mahir.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "Chicken Biryani",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "Climbing a mountain."
+        },
+        {
+          "id": "suri-zhang",
+          "role": "Junior Secretary",
+          "name": "Suri Zhang",
+          "major": "Law & Society",
+          "image": "/data/images/execheadshots2025/suri-zhang.jpg",
+          "favoriteColor": "Baby Blue",
+          "favoriteFood": "Pasta",
+          "extraQuestion": "Who is your role model and why?",
+          "extraAnswer": "Katie Ledecky because of how she pursued her Olympic career and school at the same time."
+        },
+        {
+          "id": "sonia-fung",
+          "role": "Treasurer",
+          "name": "Sonia Fung",
+          "major": "LIU PharmD",
+          "image": "/data/images/execheadshots2025/sonia-fung.jpg",
+          "favoriteColor": "Beige",
+          "favoriteFood": "Granola",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "Learn how to drive!"
+        },
+        {
+          "id": "chloe-hui",
+          "role": "Historian",
+          "name": "Chloe Hui",
+          "major": "Neuroscience",
+          "image": "/data/images/execheadshots2025/chloe-hui.jpg",
+          "favoriteColor": "Muted Purple",
+          "favoriteFood": "Cantonese-style braised beef with rice",
+          "extraQuestion": "What is your favorite animal?",
+          "extraAnswer": "Persian cats"
+        }
+      ]
+    },
+    {
+      "title": "Senior Chairpeople",
+      "members": [
+        {
+          "id": "gilbert-jiang",
+          "role": "Alumni Services",
+          "name": "Gilbert Jiang",
+          "major": "LIU PharmD",
+          "image": "/data/images/execheadshots2025/gilbert-jiang.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "BBQ Chicken Wings",
+          "extraQuestion": "If you won the lottery, what would you do first?",
+          "extraAnswer": "Buy a lot of capybaras."
+        },
+        {
+          "id": "ivan-chen",
+          "role": "Club Team Council",
+          "name": "Ivan Chen",
+          "major": "Mechatronics & Robotics",
+          "image": "/data/images/execheadshots2025/ivan-chen.jpg",
+          "favoriteColor": "Green",
+          "favoriteFood": "Chicken Bacon Ranch Pizza",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "Japan Trip with Close Friends."
+        },
+        {
+          "id": "stuti-das",
+          "role": "College Services",
+          "name": "Stuti Das",
+          "major": "Biological Sciences",
+          "image": "/data/images/execheadshots2025/stuti-das.jpg",
+          "favoriteColor": "Pink and Blue",
+          "favoriteFood": "Biryani or sushi",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "To take a Gianina Dance workshop."
+        },
+        {
+          "id": "chloe-phung",
+          "role": "Community Services",
+          "name": "Chloe Phung",
+          "major": "Chemistry",
+          "image": "/data/images/execheadshots2025/chloe-phung.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "Pasta",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "I'd like to go on a trip with friends."
+        },
+        {
+          "id": "rio-pan",
+          "role": "Community Services",
+          "name": "Rio Pan",
+          "major": "Electrical Engineering",
+          "image": "/data/images/execheadshots2025/rio-pan.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "Dave's hot chicken",
+          "extraQuestion": "If you won the lottery, what would you do first?",
+          "extraAnswer": "Build a good PC."
+        },
+        {
+          "id": "ana-dong",
+          "role": "Induction",
+          "name": "Ana Dong",
+          "major": "Civil Engineering",
+          "image": "/data/images/execheadshots2025/ana-dong.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "Pizza",
+          "extraQuestion": "What is on your bucket list?",
+          "extraAnswer": "Travel to Japan!"
+        },
+        {
+          "id": "steven-linkh",
+          "role": "Mentoring",
+          "name": "Steven Linkh",
+          "major": "Law & Society",
+          "image": "/data/images/execheadshots2025/steven-linkh.jpg",
+          "favoriteColor": "Blue",
+          "favoriteFood": "Beef Ragu Pasta",
+          "extraQuestion": "What is something that always makes you smile and why?",
+          "extraAnswer": "Going to Koreatown because I love Korean Food."
+        }
+      ]
+    }
+  ]
+}
