@@ -66,10 +66,10 @@ export default function Carousel() {
         </div>
 
         <div className="absolute left-12 top-1/2 transform -translate-y-1/2 z-10">
-          <h1 className="pl-20 text-6xl md:text-7xl font-bold text-white drop-shadow-lg leading-tight">
-            BTHS<br />NHS
+          <h1 className="pl-20 text-6xl md:text-6xl font-bold text-white drop-shadow-lg leading-tight">
+            Brooklyn Technical<br /> High School NHS
           </h1>
-          <p className="pl-20 text-xl text-gray-200 mt-4 drop-shadow-md">National Honor Society</p>
+          <p className="pl-20 text-xl text-gray-200 mt-4 drop-shadow-md">We aim to provide a platform for academic excellence and leadership development.</p>
         </div>
 
         <button

@@ -5,39 +5,172 @@ export default function Home() {
     <div className="bg-darkBlue-900 text-white">
       <Carousel />
 
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-4xl font-bold text-center mb-12">Our Pillars</h2>
-        <div className="space-y-8">
-          <div className="bg-darkBlue-800 p-8 rounded-lg shadow-lg hover:bg-darkBlue-700 transition-colors">
-            <h3 className="text-2xl font-bold text-gold mb-4">Character</h3>
-            <p className="text-lg leading-relaxed">
-              Valuing diverse cultures and building relationships that reflect love of self but also concern for others. 
-              There are endless attributes to good character: perseverance, respect, integrity, honesty, sacrifice—the list goes on.
-            </p>
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold mb-4 text-center">
+            <span className="text-gold">About</span> BTHS NHS
+          </h2>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
+          
+          <p className="text-xl leading-relaxed text-center max-w-4xl mx-auto mb-12 text-gray-100">
+            Brooklyn Technical High School National Honor Society is a prestigious organization of <span className="font-bold text-gold">600+ members</span> dedicated to serving our school and community. We foster excellence in scholarship, leadership, character, and service. Our purpose is to provide services to the school community and New York City, whether it is through volunteering, tutoring students, mentoring, assisting school faculty, or helping out during major school events.
+          </p>
+
+          {/* Info Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Card 1: Community Impact */}
+            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
+              <div className="text-4xl font-bold text-gold mb-3">12</div>
+              <h3 className="text-2xl font-bold mb-3">Active Committees</h3>
+              <p className="text-gray-200">Each committee dedicates itself to making meaningful contributions across different aspects of school and community life.</p>
+            </div>
+
+            {/* Card 2: Volunteer Hours */}
+            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
+              <div className="text-4xl font-bold text-gold mb-3">300+</div>
+              <h3 className="text-2xl font-bold mb-3">Annual Volunteer Hours</h3>
+              <p className="text-gray-200">Members contribute countless hours of service through volunteering, tutoring, mentoring, and event assistance.</p>
+            </div>
+
+            {/* Card 3: Community Reach */}
+            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
+              <div className="text-4xl font-bold text-gold mb-3">NYC</div>
+              <h3 className="text-2xl font-bold mb-3">Community Impact</h3>
+              <p className="text-gray-200">Serving beyond BTHS to make a positive impact on Brooklyn and New York City communities.</p>
+            </div>
           </div>
 
-          <div className="bg-darkBlue-800 p-8 rounded-lg shadow-lg hover:bg-darkBlue-700 transition-colors">
-            <h3 className="text-2xl font-bold text-gold mb-4">Leadership</h3>
-            <p className="text-lg leading-relaxed">
-              Carrying oneself with dignity and taking ownership and responsibility for one's own actions and participation. 
-              Leadership means being an agent—someone who takes action and responsibility—of your own pathway.
-            </p>
+          {/* Opportunities Section */}
+          <div className="bg-darkBlue-800 rounded-xl p-10 border-l-4 border-gold">
+            <h3 className="text-3xl font-bold mb-6 text-gold">Get Involved</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-xl font-bold mb-2 flex items-center">
+                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                  Gain Volunteer Hours
+                </h4>
+                <p className="text-gray-200 ml-5">Contribute to school and community service projects while building meaningful experience.</p>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2 flex items-center">
+                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                  Leadership Development
+                </h4>
+                <p className="text-gray-200 ml-5">Develop leadership skills through committee roles and school-wide initiatives.</p>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2 flex items-center">
+                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                  Build Community
+                </h4>
+                <p className="text-gray-200 ml-5">Connect with like-minded peers and contribute to a positive school culture.</p>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2 flex items-center">
+                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                  Create Impact
+                </h4>
+                <p className="text-gray-200 ml-5">Be part of initiatives that make real differences in our school and neighborhoods.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section className="bg-darkBlue-800 bg-opacity-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold mb-4 text-center">
+            <span className="text-gold">Featured</span> Events
+          </h2>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-16"></div>
+
+          {/* Event 1 */}
+          <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="order-2 md:order-1">
+              <div className="bg-darkBlue-700 rounded-xl overflow-hidden border-4 border-gold shadow-xl h-80 flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-gray-400">[Event Image 1]</p>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 md:order-2 bg-darkBlue-700 p-8 rounded-xl border-l-4 border-gold">
+              <h3 className="text-3xl font-bold mb-4">Freshman Orientation</h3>
+              <p className="text-gray-200 mb-4 leading-relaxed">
+                Welcome new students to the BTHS community with an engaging orientation event. Learn about NHS, our mission, and how to get involved in making a difference.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-darkBlue-800 p-8 rounded-lg shadow-lg hover:bg-darkBlue-700 transition-colors">
-            <h3 className="text-2xl font-bold text-gold mb-4">Scholarship</h3>
-            <p className="text-lg leading-relaxed">
-              A commitment to learning and growing on an educational path. It means making the most of the educational 
-              opportunities provided and seeking out learning, not only in school or similar settings, but also personally.
-            </p>
+          {/* Event 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="order-1">
+              <div className="bg-darkBlue-700 rounded-xl overflow-hidden border-4 border-gold shadow-xl h-80 flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-gray-400">[Event Image 2]</p>
+                </div>
+              </div>
+            </div>
+            <div className="order-2 bg-darkBlue-700 p-8 rounded-xl border-l-4 border-gold">
+              <h3 className="text-3xl font-bold mb-4">Fall Open House</h3>
+              <p className="text-gray-200 mb-4 leading-relaxed">
+                Fall open house
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Pillars Section */}
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <h2 className="text-5xl font-bold mb-4 text-center">
+          <span className="text-gold">Our</span> Pillars
+        </h2>
+        <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-16"></div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Character */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
+              <h3 className="text-2xl font-bold text-gold mb-4">Character</h3>
+              <p className="text-gray-200 leading-relaxed">
+                Valuing diverse cultures and building relationships with integrity, honesty, and perseverance.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-darkBlue-800 p-8 rounded-lg shadow-lg hover:bg-darkBlue-700 transition-colors">
-            <h3 className="text-2xl font-bold text-gold mb-4">Service</h3>
-            <p className="text-lg leading-relaxed">
-              Seeking out and engaging in meaningful service. It calls for a service mindset, the desire to seek opportunities 
-              to help others as well as acts of service.
-            </p>
+          {/* Leadership */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
+              <h3 className="text-2xl font-bold text-gold mb-4">Leadership</h3>
+              <p className="text-gray-200 leading-relaxed">
+                Taking ownership and responsibility, being an agent of change and action in our communities.
+              </p>
+            </div>
+          </div>
+
+          {/* Scholarship */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
+              <h3 className="text-2xl font-bold text-gold mb-4">Scholarship</h3>
+              <p className="text-gray-200 leading-relaxed">
+                Commitment to learning and growth through educational excellence and intellectual curiosity.
+              </p>
+            </div>
+          </div>
+
+          {/* Service */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
+              <h3 className="text-2xl font-bold text-gold mb-4">Service</h3>
+              <p className="text-gray-200 leading-relaxed">
+                Engaging in meaningful service with a desire to help others and make lasting positive impact.
+              </p>
+            </div>
           </div>
         </div>
       </section>
