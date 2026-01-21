@@ -78,43 +78,57 @@ export default function Home() {
       </section>
 
       {/* Events Section */}
-      <section className="bg-darkBlue-800 bg-opacity-50 py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-0">
+        <div className="max-w-7xl mx-auto px-4 mb-8">
           <h2 className="text-5xl font-bold mb-4 text-center">
             <span className="text-gold">Featured</span> Events
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-16"></div>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+        </div>
 
-          {/* Event 1 */}
-          <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1">
-              <div className="bg-darkBlue-700 rounded-xl overflow-hidden border-4 border-gold shadow-xl h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-gray-400">[Event Image 1]</p>
-                </div>
-              </div>
+        {/* Event 1 - Full Width Banner */}
+        <div className="w-full mb-12 overflow-hidden rounded-xl">
+          <div className="flex h-96 group">
+            {/* Image Section (Left) - with fade */}
+            <div className="w-1/3 relative overflow-hidden">
+              <img
+                src="/data/images/logo.png"
+                alt="Freshman Orientation"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              {/* Fade overlay from image to color */}
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-darkBlue-700"></div>
             </div>
-            <div className="order-1 md:order-2 bg-darkBlue-700 p-8 rounded-xl border-l-4 border-gold">
-              <h3 className="text-3xl font-bold mb-4">Freshman Orientation</h3>
-              <p className="text-gray-200 mb-4 leading-relaxed">
+
+            {/* Content Section (Right) - Solid Color */}
+            <div className="w-2/3 bg-darkBlue-700 p-12 flex flex-col justify-center border-l-4 border-gold">
+              <h3 className="text-4xl font-bold mb-4 text-gold">Freshman Orientation</h3>
+              <p className="text-lg text-gray-200 leading-relaxed">
                 Welcome new students to the BTHS community with an engaging orientation event. Learn about NHS, our mission, and how to get involved in making a difference.
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Event 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="order-1">
-              <div className="bg-darkBlue-700 rounded-xl overflow-hidden border-4 border-gold shadow-xl h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-gray-400">[Event Image 2]</p>
-                </div>
-              </div>
+        {/* Event 2 - Full Width Banner */}
+        <div className="w-full mb-12 overflow-hidden rounded-xl">
+          <div className="flex h-96 group">
+            {/* Image Section (Left) - with fade */}
+            <div className="w-1/3 relative overflow-hidden">
+              <img
+                src="/data/images/logo.png"
+                alt="Fall Open House"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              {/* Fade overlay from image to color */}
+              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-darkBlue-800"></div>
             </div>
-            <div className="order-2 bg-darkBlue-700 p-8 rounded-xl border-l-4 border-gold">
-              <h3 className="text-3xl font-bold mb-4">Fall Open House</h3>
-              <p className="text-gray-200 mb-4 leading-relaxed">
-                Fall open house
+
+            {/* Content Section (Right) - Solid Color */}
+            <div className="w-2/3 bg-darkBlue-800 p-12 flex flex-col justify-center border-l-4 border-gold">
+              <h3 className="text-4xl font-bold mb-4 text-gold">Fall Open House</h3>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                Join us for an exciting open house where you can learn more about NHS, meet our executive board, and discover the many ways you can get involved in our community.
               </p>
             </div>
           </div>

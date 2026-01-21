@@ -5,6 +5,9 @@ import Navigation from "@/components/Navigation";
 export const metadata: Metadata = {
   title: "BTHS NHS - National Honor Society",
   description: "Brooklyn Technical High School National Honor Society - Character, Leadership, Scholarship, Service",
+  icons: {
+    icon: "/data/images/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -14,9 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="/public/data/images/logo.png" href="/favicon.ico" />
-      </head>
       <body className="bg-darkBlue-900 text-white">
         <Navigation />
         <main className="min-h-screen">
