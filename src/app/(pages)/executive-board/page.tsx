@@ -36,7 +36,7 @@ export default async function ExecutiveBoard() {
 
   return (
     <div className="bg-darkBlue-900 text-white">
-      <section className="max-w-7xl mx-auto px-4 pt-24">
+      <section className="max-w-8xl mx-auto px-4 pt-24">
         <h1 className="text-6xl font-bold mb-4 text-center">
           <span className="text-gold">2025-2026</span> Executive Board
         </h1>
@@ -46,7 +46,7 @@ export default async function ExecutiveBoard() {
         </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-12">
+      <section className="max-w-8xl mx-auto px-4 py-12">
         {executiveData.map((section) => (
           <ExecutiveSection key={section.title} title={section.title} members={section.members} />
         ))}

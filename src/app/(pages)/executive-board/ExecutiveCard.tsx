@@ -23,7 +23,12 @@ interface ExecutiveCardProps {
 export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+  const [mounted, setMounted] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const updateModalPosition = () => {
     if (!cardRef.current || !isModalVisible) return;
@@ -67,16 +72,16 @@ export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
     <>
       <div
         ref={cardRef}
-        className="relative cursor-pointer"
+        className="relative cursor-pointer group"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="bg-darkBlue-800 rounded-xl overflow-hidden border-2 border-gold border-opacity-30 hover:border-opacity-100 transition-all duration-300 shadow-lg h-full hover:shadow-xl hover:scale-105">
+        <div className="bg-darkBlue-800 rounded-xl overflow-hidden border-2 border-gold border-opacity-30 hover:border-opacity-100 transition-all duration-300 shadow-lg h-full hover:shadow-2xl group-hover:-translate-y-2">
           <div className="relative overflow-hidden bg-darkBlue-700 h-64 flex items-center justify-center">
             <img
               src={executive.image}
               alt={executive.name}
-              className="w-full h-full object-cover transition-transform duration-300"
+              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
@@ -91,14 +96,15 @@ export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
         </div>
       </div>
 
-      {createPortal(
-        <ExecutiveModal
-          executive={executive}
-          isVisible={isModalVisible}
-          position={modalPosition}
-        />,
-        document.body
-      )}
+      {mounted &&
+        createPortal(
+          <ExecutiveModal
+            executive={executive}
+            isVisible={isModalVisible}
+            position={modalPosition}
+          />,
+          document.body
+        )}
     </>
   );
 }

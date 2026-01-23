@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import ExecutiveCard from './ExecutiveCard';
 
 interface Executive {
@@ -18,16 +21,60 @@ interface ExecutiveSectionProps {
 }
 
 export default function ExecutiveSection({ title, members }: ExecutiveSectionProps) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="mb-20">
-      <div className="mb-12">
+    <section 
+      ref={sectionRef}
+      className={`mb-20 transition-all duration-700 ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <div className={`mb-12 transition-all duration-700 delay-100 ${
+        isInView ? 'opacity-100' : 'opacity-0'
+      }`}>
         <h2 className="text-4xl font-bold text-gold mb-2">{title}</h2>
         <div className="w-16 h-1 bg-gold rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {members.map((executive) => (
-          <ExecutiveCard key={executive.id} executive={executive} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+        {members.map((executive, index) => (
+          <div
+            key={executive.id}
+            className={`transition-all duration-500 ${
+              isInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
+            }`}
+            style={{
+              transitionDelay: isInView ? `${100 + index * 50}ms` : '0ms',
+            }}
+          >
+            <ExecutiveCard executive={executive} />
+          </div>
         ))}
       </div>
     </section>
