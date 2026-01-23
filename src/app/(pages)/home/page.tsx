@@ -1,23 +1,65 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import Carousel from '@/components/Carousel';
+
+function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className={`transition-all duration-700 ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      } ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="bg-darkBlue-900 text-white">
       <Carousel />
 
-      <section className="max-w-7xl mx-auto px-4 py-20">
-        <div className="mb-16">
+      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+        <div className="mb-12">
           <h2 className="text-5xl font-bold mb-4 text-center">
             <span className="text-gold">About</span> BTHS NHS
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
           
-          <p className="text-xl leading-relaxed text-center max-w-4xl mx-auto mb-12 text-gray-100">
+          <p className="text-xl leading-relaxed text-center max-w-4xl mx-auto mb-10 text-gray-100">
             Brooklyn Technical High School National Honor Society is a prestigious organization of <span className="font-bold text-gold">600+ members</span> dedicated to serving our school and community. We foster excellence in scholarship, leadership, character, and service. Our purpose is to provide services to the school community and New York City, whether it is through volunteering, tutoring students, mentoring, assisting school faculty, or helping out during major school events.
           </p>
 
           {/* Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Card 1: Community Impact */}
             <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
               <div className="text-4xl font-bold text-gold mb-3">12</div>
@@ -39,69 +81,50 @@ export default function Home() {
               <p className="text-gray-200">Serving beyond BTHS to make a positive impact on Brooklyn and New York City communities.</p>
             </div>
           </div>
-
-          {/* Opportunities Section */}
-          <div className="bg-darkBlue-800 rounded-xl p-10 border-l-4 border-gold">
-            <h3 className="text-3xl font-bold mb-6 text-gold">Get Involved</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-xl font-bold mb-2 flex items-center">
-                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
-                  Gain Volunteer Hours
-                </h4>
-                <p className="text-gray-200 ml-5">Contribute to school and community service projects while building meaningful experience.</p>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold mb-2 flex items-center">
-                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
-                  Leadership Development
-                </h4>
-                <p className="text-gray-200 ml-5">Develop leadership skills through committee roles and school-wide initiatives.</p>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold mb-2 flex items-center">
-                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
-                  Build Community
-                </h4>
-                <p className="text-gray-200 ml-5">Connect with like-minded peers and contribute to a positive school culture.</p>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold mb-2 flex items-center">
-                  <span className="w-2 h-2 bg-gold rounded-full mr-3"></span>
-                  Create Impact
-                </h4>
-                <p className="text-gray-200 ml-5">Be part of initiatives that make real differences in our school and neighborhoods.</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+      </FadeInSection>
+
+      {/* Get Involved Section */}
+      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+        <div className="bg-darkBlue-800 rounded-xl p-10 border-l-4 border-gold">
+          <h3 className="text-4xl font-bold mb-4 text-gold">Get Involved</h3>
+          <p className="text-lg text-gray-200 mb-6 leading-relaxed">
+            Learn how to get involved in this organization by donating or applying as a student. Whether you're looking to volunteer your time, contribute resources, or join as an active member, BTHS NHS welcomes you to be part of our mission to create positive change in our community.
+          </p>
+          <Link
+            href="/details"
+            className="inline-block bg-gold text-darkBlue-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors duration-300"
+          >
+            Learn More
+          </Link>
+        </div>
+      </FadeInSection>
 
       {/* Events Section */}
-      <section className="py-20 px-0">
-        <div className="max-w-7xl mx-auto px-4 mb-8">
+      <FadeInSection className="py-16">
+        <div className="max-w-7xl mx-auto px-4 mb-6">
           <h2 className="text-5xl font-bold mb-4 text-center">
             <span className="text-gold">Featured</span> Events
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
         </div>
 
-        {/* Event 1 - Full Width Banner */}
-        <div className="w-full mb-12 overflow-hidden rounded-xl">
-          <div className="flex h-96 group">
-            {/* Image Section (Left) - with fade */}
-            <div className="w-1/3 relative overflow-hidden">
+        {/* Event 1 - Full Width Banner with centered image fade */}
+        <div className="w-full mb-8 overflow-hidden rounded-xl">
+          <div className="flex h-80 group">
+            {/* Image Section (Left) - with fade to middle */}
+            <div className="w-3/5 relative overflow-hidden">
               <img
                 src="/data/images/logo.png"
                 alt="Freshman Orientation"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
               />
               {/* Fade overlay from image to color */}
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-darkBlue-700"></div>
+              <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-r from-transparent to-darkBlue-700"></div>
             </div>
 
             {/* Content Section (Right) - Solid Color */}
-            <div className="w-2/3 bg-darkBlue-700 p-12 flex flex-col justify-center border-l-4 border-gold">
+            <div className="w-1.5/5 bg-darkBlue-700 p-12 flex flex-col justify-center">
               <h3 className="text-4xl font-bold mb-4 text-gold">Freshman Orientation</h3>
               <p className="text-lg text-gray-200 leading-relaxed">
                 Welcome new students to the BTHS community with an engaging orientation event. Learn about NHS, our mission, and how to get involved in making a difference.
@@ -111,21 +134,21 @@ export default function Home() {
         </div>
 
         {/* Event 2 - Full Width Banner */}
-        <div className="w-full mb-12 overflow-hidden rounded-xl">
-          <div className="flex h-96 group">
+        <div className="w-full mb-8 overflow-hidden rounded-xl">
+          <div className="flex h-80 group">
             {/* Image Section (Left) - with fade */}
-            <div className="w-1/3 relative overflow-hidden">
+            <div className="w-3/5 relative overflow-hidden">
               <img
                 src="/data/images/logo.png"
                 alt="Fall Open House"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
               />
               {/* Fade overlay from image to color */}
-              <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-darkBlue-800"></div>
+              <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-r from-transparent to-darkBlue-800"></div>
             </div>
 
             {/* Content Section (Right) - Solid Color */}
-            <div className="w-2/3 bg-darkBlue-800 p-12 flex flex-col justify-center border-l-4 border-gold">
+            <div className="w-1.5/5 bg-darkBlue-800 p-12 flex flex-col justify-center">
               <h3 className="text-4xl font-bold mb-4 text-gold">Fall Open House</h3>
               <p className="text-lg text-gray-200 leading-relaxed">
                 Join us for an exciting open house where you can learn more about NHS, meet our executive board, and discover the many ways you can get involved in our community.
@@ -133,14 +156,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </FadeInSection>
 
       {/* Our Pillars Section */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
+      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
         <h2 className="text-5xl font-bold mb-4 text-center">
           <span className="text-gold">Our</span> Pillars
         </h2>
-        <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-16"></div>
+        <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-12"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Character */}
@@ -187,9 +210,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </FadeInSection>
 
-      <div className="pb-12" />
+      <div className="pb-8" />
     </div>
   );
 }

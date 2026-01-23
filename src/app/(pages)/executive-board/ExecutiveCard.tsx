@@ -77,7 +77,7 @@ export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
         onMouseLeave={handleMouseLeave}
       >
         <div className="bg-darkBlue-800 rounded-xl overflow-hidden border-2 border-gold border-opacity-30 hover:border-opacity-100 transition-all duration-300 shadow-lg h-full hover:shadow-2xl group-hover:-translate-y-2">
-          <div className="relative overflow-hidden bg-darkBlue-700 h-64 flex items-center justify-center">
+          <div className="relative overflow-hidden bg-darkBlue-700 h-73   flex items-center justify-center">
             <img
               src={executive.image}
               alt={executive.name}
@@ -88,7 +88,7 @@ export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
             />
           </div>
 
-          <div className="p-6 text-center">
+          <div className="p-7 text-center">
             <h3 className="text-xl font-bold text-gold mb-2">{executive.role}</h3>
             <p className="text-lg font-semibold text-white mb-1">{executive.name}</p>
             <p className="text-gray-300 text-sm">{executive.major}</p>

@@ -49,18 +49,18 @@ export default function ExecutiveSection({ title, members }: ExecutiveSectionPro
   return (
     <section 
       ref={sectionRef}
-      className={`mb-20 transition-all duration-700 ${
+      className={`mb-24 transition-all duration-700 ${
         isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
-      <div className={`mb-12 transition-all duration-700 delay-100 ${
+      <div className={`mb-16 transition-all duration-700 delay-100 ${
         isInView ? 'opacity-100' : 'opacity-0'
       }`}>
-        <h2 className="text-4xl font-bold text-gold mb-2">{title}</h2>
-        <div className="w-16 h-1 bg-gold rounded-full"></div>
+        <h2 className="text-5xl font-bold text-gold mb-3">{title}</h2>
+        <div className="w-12 h-2 bg-gold rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-8">
         {members.map((executive, index) => (
           <div
             key={executive.id}

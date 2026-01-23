@@ -36,17 +36,17 @@ export default async function ExecutiveBoard() {
 
   return (
     <div className="bg-darkBlue-900 text-white">
-      <section className="max-w-8xl mx-auto px-4 pt-24">
+      <section className="max-w-8xl mx-auto px-4 pt-28">
         <h1 className="text-6xl font-bold mb-4 text-center">
           <span className="text-gold">2025-2026</span> Executive Board
         </h1>
-        <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
-        <p className="text-xl text-center max-w-3xl mx-auto text-gray-100">
+        <div className="w-24 h-2 bg-gold mx-auto rounded-full mb-8"></div>
+        <p className="text-2xl text-center max-w-4xl mx-auto text-gray-100 mb-8">
           Meet the dedicated executives who lead BTHS NHS and work to improve our community.
         </p>
       </section>
 
-      <section className="max-w-8xl mx-auto px-4 py-12">
+      <section className="max-w-9xl mx-auto px-4 pyt-16">
         {executiveData.map((section) => (
           <ExecutiveSection key={section.title} title={section.title} members={section.members} />
         ))}
