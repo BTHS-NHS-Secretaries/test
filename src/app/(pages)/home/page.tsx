@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
+import SpaceBackground from '@/components/SpaceBackground';
 
 function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -44,8 +45,10 @@ function FadeInSection({ children, className = '' }: { children: React.ReactNode
 
 export default function Home() {
   return (
-    <div className="bg-darkBlue-900 text-white">
-      <Carousel />
+    <div className="bg-darkBlue-900 text-white relative">
+      <SpaceBackground />
+      <div className="relative z-10">
+        <Carousel />
 
       <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
         <div className="mb-12">
@@ -60,21 +63,18 @@ export default function Home() {
 
           {/* Info Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {/* Card 1: Community Impact */}
             <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
               <div className="text-4xl font-bold text-gold mb-3">12</div>
               <h3 className="text-2xl font-bold mb-3">Active Committees</h3>
               <p className="text-gray-200">Each committee dedicates itself to making meaningful contributions across different aspects of school and community life.</p>
             </div>
 
-            {/* Card 2: Volunteer Hours */}
             <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
               <div className="text-4xl font-bold text-gold mb-3">300+</div>
               <h3 className="text-2xl font-bold mb-3">Annual Volunteer Hours</h3>
               <p className="text-gray-200">Members contribute countless hours of service through volunteering, tutoring, mentoring, and event assistance.</p>
             </div>
 
-            {/* Card 3: Community Reach */}
             <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
               <div className="text-4xl font-bold text-gold mb-3">NYC</div>
               <h3 className="text-2xl font-bold mb-3">Community Impact</h3>
@@ -84,7 +84,6 @@ export default function Home() {
         </div>
       </FadeInSection>
 
-      {/* Get Involved Section */}
       <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
         <div className="bg-darkBlue-800 rounded-xl p-10 border-l-4 border-gold">
           <h3 className="text-4xl font-bold mb-4 text-gold">Get Involved</h3>
@@ -92,7 +91,7 @@ export default function Home() {
             Learn how to get involved in this organization by donating or applying as a student. Whether you're looking to volunteer your time, contribute resources, or join as an active member, BTHS NHS welcomes you to be part of our mission to create positive change in our community.
           </p>
           <Link
-            href="/details"
+            href="/about"
             className="inline-block bg-gold text-darkBlue-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors duration-300"
           >
             Learn More
@@ -213,6 +212,7 @@ export default function Home() {
       </FadeInSection>
 
       <div className="pb-8" />
+      </div>
     </div>
   );
 }
