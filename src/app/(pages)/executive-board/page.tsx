@@ -1,4 +1,6 @@
 import ExecutiveSection from './ExecutiveSection';
+import fs from 'fs';
+import path from 'path';
 
 interface Executive {
   id: string;
@@ -19,12 +21,10 @@ interface ExecutiveSection {
 
 async function getExecutiveData(): Promise<ExecutiveSection[]> {
   try {
-    const res = await fetch('http://localhost:3000/data/executives.json', {
-      cache: 'no-store',
-    });
-    if (!res.ok) throw new Error('Failed to fetch');
-    const data = await res.json();
-    return data.sections;
+    const filePath = path.join(process.cwd(), 'public', 'data', 'executives.json');
+    const data = fs.readFileSync(filePath, 'utf-8');
+    const parsed = JSON.parse(data);
+    return parsed.sections;
   } catch (error) {
     console.error('Error loading executives:', error);
     return [];
