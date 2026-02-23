@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import TopNavBar from "@/components/TopNavBar";
+import Footer from "@/components/Footer";
+import { USE_TOP_MIDDLE_NAV } from "@/config/navigation";
 
 export const metadata: Metadata = {
   title: "BTHS NHS - National Honor Society",
@@ -17,16 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-darkBlue-900 text-white">
-        <Navigation />
-        <main className="min-h-screen">
+      <body className="bg-darkBlue-900 text-white flex flex-col min-h-screen">
+        {USE_TOP_MIDDLE_NAV ? <TopNavBar /> : <Navigation />}
+        <main className="flex-1">
           {children}
         </main>
-        <footer className="bg-darkBlue-darker text-white border-t-2 border-gold">
-          <div className="max-w-7xl mx-auto px-4 py-8 text-center">
-            <p className="text-lg font-semibold">&copy; 2025 BTHS NHS. All rights reserved.</p>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
