@@ -30,24 +30,30 @@ export default function ExecutiveCard({ executive }: ExecutiveCardProps) {
     setMounted(true);
   }, []);
 
+  const calculateModalPosition = (rect: DOMRect) => {
+    const modalWidth = 320; // Approximate width of modal
+    const viewportWidth = window.innerWidth;
+    
+    let left = rect.right + 20;
+    if (left + modalWidth > viewportWidth) {
+      left = rect.left - modalWidth - 20;
+    }
+
+    const top = rect.top + rect.height / 2;
+    return { top, left };
+  };
+
   const updateModalPosition = () => {
     if (!cardRef.current || !isModalVisible) return;
 
     const rect = cardRef.current.getBoundingClientRect();
-    // Simple viewport-relative positioning
-    const top = rect.top + rect.height / 2;
-    const left = rect.right + 20;
-
-    setModalPosition({ top, left });
+    setModalPosition(calculateModalPosition(rect));
   };
 
   const handleMouseEnter = () => {
     if (cardRef.current) {
       const rect = cardRef.current.getBoundingClientRect();
-      setModalPosition({
-        top: rect.top + rect.height / 2,
-        left: rect.right + 20,
-      });
+      setModalPosition(calculateModalPosition(rect));
       setIsModalVisible(true);
     }
   };

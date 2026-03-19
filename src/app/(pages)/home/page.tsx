@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
 import SpaceBackground from '@/components/SpaceBackground';
+import PillarCard from '@/components/PillarCard';
 
 function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -85,11 +86,30 @@ export default function Home() {
       </FadeInSection>
 
       <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
-        <div className="bg-darkBlue-800 rounded-xl p-10 border-l-4 border-gold">
-          <h3 className="text-4xl font-bold mb-4 text-gold">Get Involved</h3>
-          <p className="text-lg text-gray-200 mb-6 leading-relaxed">
-            Learn how to get involved in this organization by donating or applying as a student. Whether you're looking to volunteer your time, contribute resources, or join as an active member, BTHS NHS welcomes you to be part of our mission to create positive change in our community.
-          </p>
+        <div className="bg-darkBlue-800 rounded-2xl p-12 max-w-3xl mx-auto">
+          <h3 className="text-4xl font-bold mb-8 text-white">Get Involved</h3>
+          <div className="space-y-4 mb-8">
+            <div className="flex gap-3 text-gray-200">
+              <span className="text-gold text-xl">•</span>
+              <span>Leadership & Service Committee - Drive organizational strategy and community impact</span>
+            </div>
+            <div className="flex gap-3 text-gray-200">
+              <span className="text-gold text-xl">•</span>
+              <span>Mentorship & Tutoring - Support fellow students in their academic journey</span>
+            </div>
+            <div className="flex gap-3 text-gray-200">
+              <span className="text-gold text-xl">•</span>
+              <span>Event Coordination - Plan and execute meaningful school and community events</span>
+            </div>
+            <div className="flex gap-3 text-gray-200">
+              <span className="text-gold text-xl">•</span>
+              <span>Community Service - Volunteer with local organizations and initiatives</span>
+            </div>
+            <div className="flex gap-3 text-gray-200">
+              <span className="text-gold text-xl">•</span>
+              <span>12+ Active Committees - Join a team aligned with your passions and interests</span>
+            </div>
+          </div>
           <Link
             href="/about"
             className="inline-block bg-gold text-darkBlue-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors duration-300"
@@ -159,55 +179,37 @@ export default function Home() {
 
       {/* Our Pillars Section */}
       <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-5xl font-bold mb-4 text-center">
-          <span className="text-gold">Our</span> Pillars
-        </h2>
-        <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-12"></div>
+        <div className="mb-12">
+          <h2 className="text-5xl font-bold mb-4 text-center">
+            Our <span className="text-gold">Pillars</span>
+          </h2>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
+          <p className="text-center text-gray-300 text-lg max-w-2xl mx-auto mb-10">
+            These four pillars guide our organization's mission and values
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Character */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
-              <h3 className="text-2xl font-bold text-gold mb-4">Character</h3>
-              <p className="text-gray-200 leading-relaxed">
-                Valuing diverse cultures and building relationships with integrity, honesty, and perseverance.
-              </p>
-            </div>
-          </div>
-
-          {/* Leadership */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
-              <h3 className="text-2xl font-bold text-gold mb-4">Leadership</h3>
-              <p className="text-gray-200 leading-relaxed">
-                Taking ownership and responsibility, being an agent of change and action in our communities.
-              </p>
-            </div>
-          </div>
-
-          {/* Scholarship */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
-              <h3 className="text-2xl font-bold text-gold mb-4">Scholarship</h3>
-              <p className="text-gray-200 leading-relaxed">
-                Commitment to learning and growth through educational excellence and intellectual curiosity.
-              </p>
-            </div>
-          </div>
-
-          {/* Service */}
-          <div className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-            <div className="relative bg-darkBlue-800 p-8 rounded-xl border-2 border-darkBlue-700 group-hover:border-gold transition-colors duration-300 h-full">
-              <h3 className="text-2xl font-bold text-gold mb-4">Service</h3>
-              <p className="text-gray-200 leading-relaxed">
-                Engaging in meaningful service with a desire to help others and make lasting positive impact.
-              </p>
-            </div>
-          </div>
+          <PillarCard
+            title="Character"
+            description="Integrity & Diversity"
+            details="We value diverse cultures and build relationships with integrity, honesty, and perseverance. Character is the foundation of all that we do, shaping how we interact with others and contribute to our community."
+          />
+          <PillarCard
+            title="Leadership"
+            description="Action & Responsibility"
+            details="We take ownership of our actions and serve as agents of change. Leadership means inspiring others, making bold decisions, and creating positive momentum in everything we undertake."
+          />
+          <PillarCard
+            title="Scholarship"
+            description="Excellence & Learning"
+            details="We are committed to intellectual growth and educational excellence. Through continuous learning and curiosity, we develop the knowledge and skills needed to make informed contributions to society."
+          />
+          <PillarCard
+            title="Service"
+            description="Impact & Compassion"
+            details="We engage in meaningful service with a genuine desire to help others and create lasting positive impact. Service is how we demonstrate our values and make our community stronger."
+          />
         </div>
       </FadeInSection>
 

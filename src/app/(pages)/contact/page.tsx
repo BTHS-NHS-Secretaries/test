@@ -150,7 +150,7 @@ export default function Contact() {
         </div>
 
         {/* FAQ Section */}
-        <div className="border-t-2 border-gold border-opacity-20 pt-24">
+        <div className="border-t-2 border-gold border-opacity-20 pt-6">
           <h2 className="text-5xl font-bold text-gold mb-2 text-center">FAQ</h2>
           <div className="w-16 h-1 bg-gold mx-auto rounded-full opacity-50 mb-12" />
           <FAQAccordion />

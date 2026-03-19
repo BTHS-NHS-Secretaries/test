@@ -1,84 +1,123 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import CommitteeCard from '@/components/CommitteeCard';
+import SpaceBackground from '@/components/SpaceBackground';
+
+function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className={`transition-all duration-700 ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      } ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function About() {
   return (
-    <div className="bg-darkBlue-900 text-white">
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-5xl font-bold mb-8 text-center">About Us</h1>
-        
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-8 text-center">
-          The BTHS National Honor Society (NHS) chapter is dedicated to serving our community through volunteerism 
-          and leadership. As an organization of student leaders, NHS works to inspire academic excellence, build 
-          character, and promote the spirit of service among our members.
-        </p>
+    <div className="bg-darkBlue-900 text-white relative">
+      <SpaceBackground />
+      <div className="relative z-10">
+        <FadeInSection className="max-w-7xl mx-auto px-4 py-16 pt-32">
+          <div className="mb-12">
+            <h1 className="text-5xl font-bold mb-4 text-center">
+              About <span className="text-gold">NHS</span>
+            </h1>
+            <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
 
-        <h2 className="text-4xl font-bold mb-6 text-center">Our Mission</h2>
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-12 text-center">
-          Our mission is to provide an outlet for students to grow academically, socially, and emotionally while 
-          serving their community. We aim to promote scholarship, leadership, service, and character within BTHS 
-          and beyond.
-        </p>
+            <div className="max-w-4xl mx-auto space-y-6">
+              <p className="text-lg leading-relaxed text-gray-100">
+                The Brooklyn Technical High School National Honor Society is a prestigious organization dedicated to fostering excellence in scholarship, leadership, character, and service. With over 600+ active members, we create meaningful opportunities for students to grow academically and make a positive impact on our school and community.
+              </p>
 
-        <h2 className="text-4xl font-bold mb-8 text-center">Our Pillars</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div className="bg-gray-200 text-darkBlue-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h4 className="font-bold text-lg mb-3">Scholarship</h4>
-            <p className="text-sm leading-relaxed">
-              Encouraging students to strive for academic excellence and intellectual curiosity.
-            </p>
+              <p className="text-lg leading-relaxed text-gray-100">
+                As a member of NHS, you gain access to exclusive volunteer opportunities that allow you to contribute to our community while developing valuable leadership skills. Whether it's tutoring younger students, organizing school events, or participating in community service projects, every member plays a vital role in our mission.
+              </p>
+
+              <p className="text-lg leading-relaxed text-gray-100">
+                NHS members participate in two types of events: general organization-wide events where the entire membership comes together to celebrate and serve, and specialized committee events where smaller groups focus on specific initiatives and causes. This allows you to engage at the level that best suits your interests and schedule.
+              </p>
+            </div>
+          </div>
+        </FadeInSection>
+
+        <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+          <div className="mb-12">
+            <h2 className="text-5xl font-bold mb-4 text-center">
+              Our <span className="text-gold">Committees</span>
+            </h2>
+            <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
           </div>
 
-          <div className="bg-gray-200 text-darkBlue-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h4 className="font-bold text-lg mb-3">Leadership</h4>
-            <p className="text-sm leading-relaxed">
-              Fostering an environment of leadership, service, and responsibility.
-            </p>
+          <CommitteeCard name="Committee 1" description="eeee" />
+
+          <CommitteeCard name="Committee 2" description="eeee" />
+
+          <CommitteeCard name="Committee 3" description="eeeeee" />
+        </FadeInSection>
+
+        <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+          <div className="mb-12">
+            <h2 className="text-5xl font-bold mb-4 text-center">
+              Get <span className="text-gold">Involved</span>
+            </h2>
+            <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
           </div>
 
-          <div className="bg-gray-200 text-darkBlue-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h4 className="font-bold text-lg mb-3">Service</h4>
-            <p className="text-sm leading-relaxed">
-              Engaging in activities that contribute to the betterment of our school and community.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg leading-relaxed text-gray-100 mb-6">
+                Ready to join BTHS NHS? Our application process is straightforward and designed to identify students who are committed to our core values of scholarship, leadership, character, and service.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-100">
+                Follow our application workflow to understand the process, requirements, and next steps. We're excited to welcome passionate students who want to make a difference!
+              </p>
+            </div>
 
-          <div className="bg-gray-200 text-darkBlue-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <h4 className="font-bold text-lg mb-3">Character</h4>
-            <p className="text-sm leading-relaxed">
-              Promoting strong personal character and ethical decision-making.
-            </p>
+            <div className="flex justify-center">
+              <Image
+                src="/data/images/flowchart.jpg"
+                alt="NHS Application Process"
+                width={400}
+                height={500}
+                className="rounded-xl shadow-lg"
+              />
+            </div>
           </div>
-        </div>
+        </FadeInSection>
 
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-12 text-center">
-          As a chapter of the National Honor Society, we are committed to maintaining the high standards set by 
-          this prestigious organization while continuing to make a positive impact in our community.
-        </p>
-
-        <h2 className="text-4xl font-bold mb-6 text-center">Leaders</h2>
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-12 text-center">
-          Every year, NHS executives and members attend leadership conferences all over the country, representing 
-          our school and organization. We've attended LEAD conferences in Chicago and DC, and the NHS Summit in 
-          Stamford, CT.
-        </p>
-
-        <h2 className="text-4xl font-bold mb-6 text-center">Our Events</h2>
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto mb-8 text-center">
-          Here are some moments from our recent events:
-        </p>
-        
-        <div className="flex justify-center gap-6 flex-wrap mb-8">
-          <div className="w-24 h-24 bg-gray-600 rounded-lg flex items-center justify-center">
-            <p className="text-gray-400 text-center text-sm">[Event 1]</p>
-          </div>
-          <div className="w-24 h-24 bg-gray-600 rounded-lg flex items-center justify-center">
-            <p className="text-gray-400 text-center text-sm">[Event 2]</p>
-          </div>
-          <div className="w-24 h-24 bg-gray-600 rounded-lg flex items-center justify-center">
-            <p className="text-gray-400 text-center text-sm">[Event 3]</p>
-          </div>
-        </div>
-      </section>
-
-      <div className="pb-12" />
+        <div className="pb-12" />
+      </div>
     </div>
   );
 }
