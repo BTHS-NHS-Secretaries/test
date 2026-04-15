@@ -8,9 +8,9 @@ export default function TopNavBar() {
 
   const navItems = [
     { href: '/home', label: 'Home' },
+    { href: '/about', label: 'About' },
     { href: '/member-points', label: 'Member Points' },
     { href: '/executive-board', label: 'Executive Board' },
-    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 

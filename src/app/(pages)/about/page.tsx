@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import CommitteeCard from '@/components/CommitteeCard';
+import CommitteeGrid from '@/components/CommitteeGrid';
 import SpaceBackground from '@/components/SpaceBackground';
 
 function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -48,7 +48,7 @@ export default function About() {
     <div className="bg-darkBlue-900 text-white relative">
       <SpaceBackground />
       <div className="relative z-10">
-        <FadeInSection className="max-w-7xl mx-auto px-4 py-16 pt-32">
+        <FadeInSection className="max-w-7xl mx-auto px-4 pt-32">
           <div className="mb-12">
             <h1 className="text-5xl font-bold mb-4 text-center">
               About <span className="text-gold">NHS</span>
@@ -79,11 +79,7 @@ export default function About() {
             <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
           </div>
 
-          <CommitteeCard name="Committee 1" description="eeee" />
-
-          <CommitteeCard name="Committee 2" description="eeee" />
-
-          <CommitteeCard name="Committee 3" description="eeeeee" />
+          <CommitteeGrid />
         </FadeInSection>
 
         <FadeInSection className="max-w-7xl mx-auto px-4 py-16">

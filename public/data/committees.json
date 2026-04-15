@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Community Service",
+    "description": "Dedicated to serving our local community through volunteer initiatives, food drives, and community partnerships. We believe in making a tangible difference in the lives of those around us.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Tutoring",
+    "description": "Empowering younger students through peer tutoring in various subjects. Our tutors provide personalized support to help students succeed academically and build confidence.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Events",
+    "description": "Organizing and coordinating memorable events that bring the NHS community together. From fundraisers to celebrations, we create opportunities for connection and engagement.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Fundraising",
+    "description": "Raising funds for charitable causes and school initiatives. Our creative fundraising campaigns support local nonprofits and provide scholarships for deserving students.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Leadership",
+    "description": "Developing future leaders through workshops, mentorship programs, and leadership conferences. We equip members with the skills needed to lead effectively in any setting.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Social Impact",
+    "description": "Addressing important social issues through awareness campaigns and advocacy. We work to create positive change on campus and in our community.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  }
+]

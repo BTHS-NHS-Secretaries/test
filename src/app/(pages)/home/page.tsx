@@ -51,7 +51,7 @@ export default function Home() {
       <div className="relative z-10">
         <Carousel />
 
-      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+      <FadeInSection className="max-w-7xl mx-auto px-4 pt-32">
         <div className="mb-12">
           <h2 className="text-5xl font-bold mb-4 text-center">
             <span className="text-gold">About</span> BTHS NHS

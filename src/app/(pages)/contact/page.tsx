@@ -12,11 +12,11 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: 'How do I join NHS?',
-    answer: 'Visit the details page, applications come every summer and fall'
+    answer: 'Visit the details page, applications for new members come every Summer and Fall.'
   },
   {
     question: 'When are your meetings?',
-    answer: 'We hold monthly meetings general meetings through the year, as well as your commitee specific meetings.'
+    answer: 'We hold mandatory monthly meetings general meetings through the year, as well you must attend your commitee specific monthly meetings.'
   },
   {
     question: 'placeholder',
@@ -86,9 +86,10 @@ export default function Contact() {
   return (
     <div className="bg-darkBlue-900 text-white">
       {/* Header Section */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="max-w-7xl mx-auto px-6 pt-32">
         {/* Contact Us Section */}
         <div className="mb-24 space-y-12">
+          
           {/* Email Section */}
           <div>
             <h2 className="text-4xl font-bold text-gold mb-2 text-center">Contact Us</h2>
@@ -128,6 +129,13 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* FAQ Section */}
+          <div className="border-t-2 border-gold border-opacity-20 pt-6">
+            <h2 className="text-5xl font-bold text-gold mb-2 text-center">FAQ</h2>
+            <div className="w-16 h-1 bg-gold mx-auto rounded-full opacity-50 mb-12" />
+            <FAQAccordion />
+          </div>
+
           {/* Social Section */}
           <div>
             <h2 className="text-4xl font-bold text-gold mb-2 text-center">Follow Us</h2>
@@ -147,13 +155,6 @@ export default function Contact() {
               </a>
             </div>
           </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="border-t-2 border-gold border-opacity-20 pt-6">
-          <h2 className="text-5xl font-bold text-gold mb-2 text-center">FAQ</h2>
-          <div className="w-16 h-1 bg-gold mx-auto rounded-full opacity-50 mb-12" />
-          <FAQAccordion />
         </div>
       </section>
     </div>
