@@ -1,32 +1,52 @@
 [
   {
-    "name": "Community Service",
-    "description": "Dedicated to serving our local community through volunteer initiatives, food drives, and community partnerships. We believe in making a tangible difference in the lives of those around us.",
+    "name": "Alumni Services",
+    "description": "Assists the Brooklyn Tech Alumni Foundation in planning and running events such as Career Day, Recent Alumni Day, Internship Forum, and Homecoming. Members help execute events, interact with alumni, and gain insight into life after high school.",
     "imagePath": "/images/committee-placeholder.jpg"
   },
   {
-    "name": "Tutoring",
-    "description": "Empowering younger students through peer tutoring in various subjects. Our tutors provide personalized support to help students succeed academically and build confidence.",
+    "name": "Club Team Council",
+    "description": "Bridges the gap between the Student Government Organization and NHS by supporting club-related initiatives. Members provide logistical support for events like the Club Fair and track club meetings throughout the year.",
     "imagePath": "/images/committee-placeholder.jpg"
   },
   {
-    "name": "Events",
-    "description": "Organizing and coordinating memorable events that bring the NHS community together. From fundraisers to celebrations, we create opportunities for connection and engagement.",
+    "name": "College Services",
+    "description": "Supports College Office events such as the College Fair by assisting with setup, guiding attendees, and helping operations run smoothly. Members gain insight into the college process and help share information with the student body.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Community Services",
+    "description": "Focuses on improving communities through volunteer work such as beautification, assisting those in need, and organizing events like walks, cultural festivals, and park cleanups. Members work with nonprofits and can receive official volunteer hours.",
     "imagePath": "/images/committee-placeholder.jpg"
   },
   {
     "name": "Fundraising",
-    "description": "Raising funds for charitable causes and school initiatives. Our creative fundraising campaigns support local nonprofits and provide scholarships for deserving students.",
+    "description": "Raises funds to support NHS initiatives and events through donation drives and school events like Parent Teacher Conferences and the High School Fair. The committee ensures NHS has the financial support needed to operate and grow.",
     "imagePath": "/images/committee-placeholder.jpg"
   },
   {
-    "name": "Leadership",
-    "description": "Developing future leaders through workshops, mentorship programs, and leadership conferences. We equip members with the skills needed to lead effectively in any setting.",
+    "name": "Induction",
+    "description": "Plans and executes major NHS events including the Induction Ceremony and Installation Dinner. Members help design programs, coordinate logistics, greet guests, and develop leadership and organizational skills.",
     "imagePath": "/images/committee-placeholder.jpg"
   },
   {
-    "name": "Social Impact",
-    "description": "Addressing important social issues through awareness campaigns and advocacy. We work to create positive change on campus and in our community.",
+    "name": "Mentoring",
+    "description": "Supports students across all grades by mentoring freshmen and fostering a collaborative school environment. Members guide peers through high school and the college process while promoting community within the school.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Outreach",
+    "description": "Handles communication and promotion through multimedia efforts including graphic design and journalism. Members create newsletters, write articles, design event materials, and collaborate with other organizations to promote NHS.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "Parent Services",
+    "description": "Supports events involving parents, including PA meetings and the Cultural Fair. Members collaborate with parents, students, and staff to strengthen connections within the school community.",
+    "imagePath": "/images/committee-placeholder.jpg"
+  },
+  {
+    "name": "School Environment Services",
+    "description": "Works to maintain a clean, safe, and inclusive school environment by collaborating with students and administration. Members help improve facilities, organize activities, promote environmental awareness, and provide a platform for student concerns.",
     "imagePath": "/images/committee-placeholder.jpg"
   }
 ]

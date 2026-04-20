@@ -40,12 +40,12 @@ export default function CommitteeGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-cols-max">
         {committees.map((committee) => (
           <button
             key={committee.name}
             onClick={() => handleBoxClick(committee)}
-            className="group relative bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg p-6 min-h-48 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:from-gray-600 hover:to-gray-800 border border-gray-600 hover:border-gold border-opacity-30 hover:border-opacity-100"
+            className="group relative bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg p-6 min-h-40 sm:min-h-44 md:min-h-48 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:from-gray-600 hover:to-gray-800 border border-gray-600 hover:border-gold border-opacity-30 hover:border-opacity-100 w-full"
           >
             <div className="absolute inset-0 bg-gold opacity-0 group-hover:opacity-5 rounded-lg transition-opacity duration-300"></div>
             <div className="relative z-10 flex items-center justify-center h-full">
