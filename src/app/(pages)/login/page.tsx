@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Login() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,80 +17,41 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const trimmedEmail = email.trim().toLowerCase();
+      const trimmedUsername = username.trim();
       const trimmedPassword = password.trim();
 
-      if (!trimmedEmail || !trimmedPassword) {
-        setError('Please enter both email and password');
+      if (!trimmedUsername || !trimmedPassword) {
+        setError('Please enter both username and password');
         setLoading(false);
         return;
       }
 
-      // TODO: Replace with Supabase authentication
-      // For now, validate against CSV files from public/data/
-      
-      // Step 1: Fetch and validate user credentials
-      const credResponse = await fetch('/data/users+password.csv');
-      if (!credResponse.ok) {
-        throw new Error('Unable to load user database');
-      }
-      
-      const credText = await credResponse.text();
-      const credRows = credText.trim().split('\n');
-      const credHeaders = credRows[0].split(',').map(h => h.trim());
-      const credData = credRows.slice(1).map(row => {
-        const cols = row.split(',');
-        const entry: { [key: string]: string } = {};
-        credHeaders.forEach((header, index) => {
-          entry[header] = cols[index]?.trim() || '';
-        });
-        return entry;
+      // Call the API route
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: trimmedUsername,
+          password: trimmedPassword,
+        }),
       });
 
-      const user = credData.find(u => u['Email']?.toLowerCase() === trimmedEmail);
+      const result = await res.json();
 
-      if (!user) {
-        setError('Email not found');
+      if (!res.ok) {
+        setError(result.error || 'Login failed');
         setLoading(false);
         return;
       }
 
-      if (user['Password'] !== trimmedPassword) {
-        setError('Incorrect password');
-        setLoading(false);
-        return;
-      }
+      // Store minimal session data
+      localStorage.setItem('username', result.user.username);
+      localStorage.setItem('userId', result.user.id);
+      localStorage.setItem('userEmail', result.user.email);
 
-      // Step 2: Load member data
-      const memberResponse = await fetch('/data/members.csv');
-      if (!memberResponse.ok) {
-        throw new Error('Unable to load member database');
-      }
-
-      const memberText = await memberResponse.text();
-      const memberRows = memberText.trim().split('\n');
-      const memberHeaders = memberRows[0].split(',').map(h => h.trim());
-      const memberData = memberRows.slice(1).map(row => {
-        const cols = row.split(',');
-        const entry: { [key: string]: string } = {};
-        memberHeaders.forEach((header, index) => {
-          entry[header] = cols[index]?.trim() || '';
-        });
-        return entry;
-      });
-
-      const member = memberData.find(m => m['Email']?.toLowerCase() === trimmedEmail);
-
-      if (!member) {
-        setError('Member data not found');
-        setLoading(false);
-        return;
-      }
-
-      // Step 3: Store data and redirect
-      localStorage.setItem('userData', JSON.stringify(member));
-      localStorage.setItem('userEmail', trimmedEmail);
-      
+      // Redirect to member points page
       router.push('/member-points');
     } catch (err) {
       console.error('Login error:', err);
@@ -107,7 +68,7 @@ export default function Login() {
           {/* Header */}
           <div className="text-center mb-12">
             <p className="text-lg text-gray-300">
-              <i>Enter your email and password to access your member points.</i>
+              <i>Enter your username and password to access your member points.</i>
             </p>
           </div>
 
@@ -122,18 +83,19 @@ export default function Login() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email Input */}
+              {/* Username Input */}
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                  Email Address
+                <label htmlFor="username" className="block text-sm font-semibold text-gray-300 mb-2">
+                  Username
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your username"
                   disabled={loading}
+                  autoComplete="username"
                   className="w-full px-4 py-3 rounded-lg bg-darkBlue-900 border border-gold border-opacity-30 text-white placeholder-gray-500 focus:outline-none focus:border-gold focus:border-opacity-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   required
                 />
@@ -151,6 +113,7 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   disabled={loading}
+                  autoComplete="current-password"
                   className="w-full px-4 py-3 rounded-lg bg-darkBlue-900 border border-gold border-opacity-30 text-white placeholder-gray-500 focus:outline-none focus:border-gold focus:border-opacity-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   required
                 />
