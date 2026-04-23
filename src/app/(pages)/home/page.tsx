@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
-import SpaceBackground from '@/components/SpaceBackground';
 import PillarCard from '@/components/PillarCard';
+import { desc } from 'framer-motion/client';
 
 function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -45,74 +45,98 @@ function FadeInSection({ children, className = '' }: { children: React.ReactNode
 }
 
 export default function Home() {
+  const events = [
+    {
+      id: 'orientation',
+      title: 'Freshman Orientation',
+      description: 'Welcome new students to the BTHS community with an engaging orientation event. Learn about NHS, our mission, and how to get involved in making a difference.',
+      icon: '',
+      bg: 'bg-indigo-700',
+    },
+    {
+      id: 'openhouse',
+      title: 'Fall Open House',
+      description: 'Join us for an exciting open house where you can meet our executive board, explore our committees, and discover ways to get involved in our community.',
+      icon: '',
+      bg: 'bg-blue-700',
+    },
+    {
+      id: 'HomeComing',
+      title: "Testing",
+      description: "testing",
+      icon: " ",
+      bg: 'bg-blue-700'
+    }
+  ];
+
   return (
-    <div className="bg-darkBlue-900 text-white relative">
-      <SpaceBackground />
-      <div className="relative z-10">
+    <div className="relative bg-slate-900">
+      <div>
         <Carousel />
 
       <FadeInSection className="max-w-7xl mx-auto px-4 pt-32">
         <div className="mb-12">
-          <h2 className="text-5xl font-bold mb-4 text-center">
-            <span className="text-gold">About</span> BTHS NHS
+          <h2 className="text-6xl font-bold mb-6 text-center text-white">
+            <span className="text-blue-400">About</span> BTHS NHS
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+          <div className="w-32 h-1 bg-blue-400 mx-auto rounded-full mb-8"></div>
           
-          <p className="text-xl leading-relaxed text-center max-w-4xl mx-auto mb-10 text-gray-100">
-            Brooklyn Technical High School National Honor Society is a prestigious organization of <span className="font-bold text-gold">600+ members</span> dedicated to serving our school and community. We foster excellence in scholarship, leadership, character, and service. Our purpose is to provide services to the school community and New York City, whether it is through volunteering, tutoring students, mentoring, assisting school faculty, or helping out during major school events.
+          <p className="text-2xl leading-relaxed text-center max-w-4xl mx-auto mb-12 text-gray-200">
+            Brooklyn Technical High School National Honor Society is a prestigious organization of <span className="font-bold text-blue-400">600+ members</span> dedicated to serving our school and community.
+            Brooklyn Technical High School National Honor Society is a prestigious organization of <span className="font-bold text-blue-400">600+ members</span> dedicated to serving our school and community. We foster excellence in scholarship, leadership, character, and service.
           </p>
 
           {/* Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
-              <div className="text-4xl font-bold text-gold mb-3">12</div>
-              <h3 className="text-2xl font-bold mb-3">Active Committees</h3>
-              <p className="text-gray-200">Each committee dedicates itself to making meaningful contributions across different aspects of school and community life.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div className="bg-indigo-900 p-10 rounded-2xl shadow-lg border border-indigo-700">
+              <div className="text-5xl font-bold text-blue-300 mb-4">12</div>
+              <h3 className="text-3xl font-bold mb-4 text-white">Active Committees</h3>
+              <p className="text-gray-300 text-lg">Each committee dedicates itself to making meaningful contributions across different aspects of school and community life.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
-              <div className="text-4xl font-bold text-gold mb-3">300+</div>
-              <h3 className="text-2xl font-bold mb-3">Annual Volunteer Hours</h3>
-              <p className="text-gray-200">Members contribute countless hours of service through volunteering, tutoring, mentoring, and event assistance.</p>
+            <div className="bg-blue-900 p-10 rounded-2xl shadow-lg border border-blue-700">
+              <div className="text-5xl font-bold text-blue-300 mb-4">300+</div>
+              <h3 className="text-3xl font-bold mb-4 text-white">Annual Volunteer Hours</h3>
+              <p className="text-gray-300 text-lg">Members contribute countless hours of service through volunteering, tutoring, mentoring, and event assistance.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-darkBlue-800 to-darkBlue-700 p-8 rounded-xl shadow-lg border border-gold border-opacity-30 hover:border-opacity-100 transition-all">
-              <div className="text-4xl font-bold text-gold mb-3">NYC</div>
-              <h3 className="text-2xl font-bold mb-3">Community Impact</h3>
-              <p className="text-gray-200">Serving beyond BTHS to make a positive impact on Brooklyn and New York City communities.</p>
+            <div className="bg-slate-800 p-10 rounded-2xl shadow-lg border border-slate-700">
+              <div className="text-5xl font-bold text-blue-300 mb-4">NYC</div>
+              <h3 className="text-3xl font-bold mb-4 text-white">Community Impact</h3>
+              <p className="text-gray-300 text-lg">Serving beyond BTHS to make a positive impact on Brooklyn and New York City communities.</p>
             </div>
           </div>
         </div>
       </FadeInSection>
 
-      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
-        <div className="bg-darkBlue-800 rounded-2xl p-12 max-w-3xl mx-auto">
-          <h3 className="text-4xl font-bold mb-8 text-white">Get Involved</h3>
-          <div className="space-y-4 mb-8">
-            <div className="flex gap-3 text-gray-200">
-              <span className="text-gold text-xl">•</span>
-              <span>Leadership & Service Committee - Drive organizational strategy and community impact</span>
+      <FadeInSection className="bg-slate-700 py-20">
+        <div className="bg-indigo-900 rounded-3xl p-16 max-w-3xl mx-auto border border-indigo-700">
+          <h3 className="text-5xl font-bold mb-10 text-white">Get Involved</h3>
+          <div className="space-y-5 mb-10">
+            <div className="flex gap-4 text-gray-200">
+              <span className="text-blue-400 text-2xl">•</span>
+              <span className="text-lg">Leadership & Service Committee - Drive organizational strategy and community impact</span>
             </div>
-            <div className="flex gap-3 text-gray-200">
-              <span className="text-gold text-xl">•</span>
-              <span>Mentorship & Tutoring - Support fellow students in their academic journey</span>
+            <div className="flex gap-4 text-gray-200">
+              <span className="text-blue-400 text-2xl">•</span>
+              <span className="text-lg">Mentorship & Tutoring - Support fellow students in their academic journey</span>
             </div>
-            <div className="flex gap-3 text-gray-200">
-              <span className="text-gold text-xl">•</span>
-              <span>Event Coordination - Plan and execute meaningful school and community events</span>
+            <div className="flex gap-4 text-gray-200">
+              <span className="text-blue-400 text-2xl">•</span>
+              <span className="text-lg">Event Coordination - Plan and execute meaningful school and community events</span>
             </div>
-            <div className="flex gap-3 text-gray-200">
-              <span className="text-gold text-xl">•</span>
-              <span>Community Service - Volunteer with local organizations and initiatives</span>
+            <div className="flex gap-4 text-gray-200">
+              <span className="text-blue-400 text-2xl">•</span>
+              <span className="text-lg">Community Service - Volunteer with local organizations and initiatives</span>
             </div>
-            <div className="flex gap-3 text-gray-200">
-              <span className="text-gold text-xl">•</span>
-              <span>12+ Active Committees - Join a team aligned with your passions and interests</span>
+            <div className="flex gap-4 text-gray-200">
+              <span className="text-blue-400 text-2xl">•</span>
+              <span className="text-lg">12+ Active Committees - Join a team aligned with your passions and interests</span>
             </div>
           </div>
           <Link
             href="/about"
-            className="inline-block bg-gold text-darkBlue-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors duration-300"
+            className="inline-block bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-600 transition-colors duration-300"
           >
             Learn More
           </Link>
@@ -120,76 +144,56 @@ export default function Home() {
       </FadeInSection>
 
       {/* Events Section */}
-      <FadeInSection className="py-16">
-        <div className="max-w-7xl mx-auto px-4 mb-6">
-          <h2 className="text-5xl font-bold mb-4 text-center">
-            <span className="text-gold">Featured</span> Events
+      <FadeInSection className="bg-slate-800 py-24">
+        <div className="max-w-7xl mx-auto px-4 mb-20">
+          <h2 className="text-6xl font-bold mb-6 text-center text-white">
+            <span className="text-blue-400">Featured</span> Events
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-blue-400 mx-auto rounded-full"></div>
         </div>
 
-        {/* Event 1 - Full Width Banner with centered image fade */}
-        <div className="w-full mb-8 overflow-hidden rounded-xl">
-          <div className="flex h-80 group">
-            {/* Image Section (Left) - with fade to middle */}
-            <div className="w-3/5 relative overflow-hidden">
-              <img
-                src="/data/images/logo.png"
-                alt="Freshman Orientation"
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-              {/* Fade overlay from image to color */}
-              <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-r from-transparent to-darkBlue-700"></div>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 space-y-24">
+          {events.map((event, i) => (
+            <div key={event.id} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Content */}
+              <div className={i % 2 === 1 ? "lg:order-2" : ""}>
+                <h3 className="text-5xl font-bold text-white mb-6">{event.title}</h3>
+                <p className="text-gray-300 text-xl leading-relaxed mb-8">
+                  {event.description}
+                </p>
+              </div>
 
-            {/* Content Section (Right) - Solid Color */}
-            <div className="w-1.5/5 bg-darkBlue-700 p-12 flex flex-col justify-center">
-              <h3 className="text-4xl font-bold mb-4 text-gold">Freshman Orientation</h3>
-              <p className="text-lg text-gray-200 leading-relaxed">
-                Welcome new students to the BTHS community with an engaging orientation event. Learn about NHS, our mission, and how to get involved in making a difference.
-              </p>
+              <div
+                className={`rounded-3xl flex flex-col items-center justify-center text-center gap-8 min-h-80 relative overflow-hidden ${i % 2 === 1 ? "lg:order-1" : ""} ${event.bg}`}
+              >
+                <div className="relative z-10 p-16 flex flex-col items-center gap-8 w-full">
+                  <div className="w-28 h-28 rounded-3xl bg-white/20 flex items-center justify-center text-white text-6xl">
+                    
+                  </div>
+                  <p className="font-black text-4xl text-white leading-tight max-w-xs">
+                    
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Event 2 - Full Width Banner */}
-        <div className="w-full mb-8 overflow-hidden rounded-xl">
-          <div className="flex h-80 group">
-            {/* Image Section (Left) - with fade */}
-            <div className="w-3/5 relative overflow-hidden">
-              <img
-                src="/data/images/logo.png"
-                alt="Fall Open House"
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-              {/* Fade overlay from image to color */}
-              <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-r from-transparent to-darkBlue-800"></div>
-            </div>
-
-            {/* Content Section (Right) - Solid Color */}
-            <div className="w-1.5/5 bg-darkBlue-800 p-12 flex flex-col justify-center">
-              <h3 className="text-4xl font-bold mb-4 text-gold">Fall Open House</h3>
-              <p className="text-lg text-gray-200 leading-relaxed">
-                Join us for an exciting open house where you can learn more about NHS, meet our executive board, and discover the many ways you can get involved in our community.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </FadeInSection>
 
       {/* Our Pillars Section */}
-      <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
-        <div className="mb-12">
-          <h2 className="text-5xl font-bold mb-4 text-center">
-            Our <span className="text-gold">Pillars</span>
+      <FadeInSection className="bg-slate-900 py-24">
+        <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-20">
+          <h2 className="text-6xl font-bold mb-6 text-center text-white">
+            Our <span className="text-blue-400">Pillars</span>
           </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
-          <p className="text-center text-gray-300 text-lg max-w-2xl mx-auto mb-10">
-            These four pillars guide our organization's mission and values
+          <div className="w-32 h-1 bg-blue-400 mx-auto rounded-full mb-10"></div>
+          <p className="text-center text-gray-300 text-xl max-w-2xl mx-auto">
+            IDK ILL THINK OF HOW TO IMPROVE THIS LATER
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <PillarCard
             title="Character"
             description="Integrity & Diversity"
@@ -210,6 +214,7 @@ export default function Home() {
             description="Impact & Compassion"
             details="We engage in meaningful service with a genuine desire to help others and create lasting positive impact. Service is how we demonstrate our values and make our community stronger."
           />
+        </div>
         </div>
       </FadeInSection>
 

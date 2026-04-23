@@ -69,7 +69,6 @@ export default function Carousel() {
           <h1 className="pl-20 text-6xl md:text-6xl font-bold text-white drop-shadow-lg leading-tight">
             Brooklyn Technical<br /> High School NHS
           </h1>
-          <p className="pl-20 text-xl text-gray-200 mt-4 drop-shadow-md">We aim to provide a platform for academic excellence and leadership development.</p>
         </div>
 
         <button

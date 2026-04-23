@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import CommitteeGrid from '@/components/CommitteeGrid';
-import SpaceBackground from '@/components/SpaceBackground';
 
 function FadeInSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -45,58 +44,59 @@ function FadeInSection({ children, className = '' }: { children: React.ReactNode
 
 export default function About() {
   return (
-    <div className="bg-darkBlue-900 text-white relative">
-      <SpaceBackground />
-      <div className="relative z-10">
+    <div className="relative bg-slate-900">
+      <div>
         <FadeInSection className="max-w-7xl mx-auto px-4 pt-32">
           <div className="mb-12">
-            <h1 className="text-5xl font-bold mb-4 text-center">
-              About <span className="text-gold">NHS</span>
+            <h1 className="text-6xl font-bold mb-6 text-center text-white">
+              About <span className="text-blue-400">NHS</span>
             </h1>
-            <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
+            <div className="w-32 h-1 bg-blue-400 mx-auto rounded-full mb-8"></div>
 
-            <div className="max-w-4xl mx-auto space-y-6">
-              <p className="text-lg leading-relaxed text-gray-100">
+            <div className="max-w-4xl mx-auto space-y-8">
+              <p className="text-xl leading-relaxed text-gray-300">
                 The Brooklyn Technical High School National Honor Society is a prestigious organization dedicated to fostering excellence in scholarship, leadership, character, and service. With over 600+ active members, we create meaningful opportunities for students to grow academically and make a positive impact on our school and community.
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-100">
+              <p className="text-xl leading-relaxed text-gray-300">
                 As a member of NHS, you gain access to exclusive volunteer opportunities that allow you to contribute to our community while developing valuable leadership skills. Whether it's tutoring younger students, organizing school events, or participating in community service projects, every member plays a vital role in our mission.
               </p>
 
-              <p className="text-lg leading-relaxed text-gray-100">
+              <p className="text-xl leading-relaxed text-gray-300">
                 NHS members participate in two types of events: general organization-wide events where the entire membership comes together to celebrate and serve, and specialized committee events where smaller groups focus on specific initiatives and causes. This allows you to engage at the level that best suits your interests and schedule.
               </p>
             </div>
           </div>
         </FadeInSection>
 
-        <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+        <FadeInSection className="bg-indigo-950 py-16">
+          <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-5xl font-bold mb-4 text-center">
-              Our <span className="text-gold">Committees</span>
+            <h2 className="text-5xl font-bold mb-4 text-center text-white">
+              Our <span className="text-blue-400">Committees</span>
             </h2>
-            <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-blue-400 mx-auto rounded-full"></div>
           </div>
 
           <CommitteeGrid />
+          </div>
         </FadeInSection>
 
-        <FadeInSection className="max-w-7xl mx-auto px-4 py-16">
+        <FadeInSection className="bg-blue-1000 py-16">
+          <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-5xl font-bold mb-4 text-center">
-              Get <span className="text-gold">Involved</span>
+            <h2 className="text-5xl font-bold mb-4 text-center text-white">
+              Get <span className="text-blue-400">Involved</span>
             </h2>
-            <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
+            <div className="w-24 h-1 bg-blue-400 mx-auto rounded-full mb-8"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg leading-relaxed text-gray-100 mb-6">
-                Ready to join BTHS NHS? Our application process is straightforward and designed to identify students who are committed to our core values of scholarship, leadership, character, and service.
-              </p>
-              <p className="text-lg leading-relaxed text-gray-100">
-                Follow our application workflow to understand the process, requirements, and next steps. We're excited to welcome passionate students who want to make a difference!
+              <p className="text-lg leading-relaxed text-gray-200 mb-6">
+                Want to join NHS? We welcome passionate students who are committed to making a difference in our school and community. To become a member, you must apply during the application period, which typically occurs in the fall and summer. Watch out for any emails in daily announcements or check our social media for updates on when applications will open. We look forward to welcoming new members who share our dedication to excellence and service!
+                <br /> <br />
+                Students must have attended Brooklyn Tech for at least one school year in order to apply. Freshmen may apply at the end of Freshman year during the Spring Applications. Applicants must have a minimum GPA of 85. The GPA will be taken from the student's transcript at the end of the school year. To meet NHS criteria, students must earn points in four categories corresponding to the four NHS pillars: Character, Scholarship, Leadership, and Service. The minimum point requirements for acceptance are 13 for Sophomores, 14 for Juniors, and 16 for Seniors.
               </p>
             </div>
 
@@ -104,11 +104,12 @@ export default function About() {
               <Image
                 src="/data/images/flowchart.jpg"
                 alt="NHS Application Process"
-                width={400}
-                height={500}
+                width={450}
+                height={550}
                 className="rounded-xl shadow-lg"
               />
             </div>
+          </div>
           </div>
         </FadeInSection>
 
